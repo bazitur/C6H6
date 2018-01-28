@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+name = "pypi"
+verify_ssl = true
+
+[requires]
+python_version = "2.7"
+
+[packages]
+
+pillow = "==2.1.0"
+tqdm = "*"
+lxml = "*"
+
+
+[dev-packages]
