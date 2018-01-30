@@ -4,11 +4,19 @@ from rdkit import DataStructs
 from rdkit.Chem.Fingerprints import FingerprintMols
 from glob import glob
 
-filenames = tuple(glob("./MOLs/*"))
+filenames = sorted(glob("./MOLs/*"))
 
 canonical_SMILES = [Chem.MolToSmiles(Chem.MolFromMolFile(fn)) for fn in filenames]
+
+def f7(seq):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in seq if not (x in seen or seen_add(x))]
+
 # sort canonical SMILES by similarity
-# print("\n".join(sorted(set(canonical_SMILES))), end="")
+print("\n".join(f7(canonical_SMILES)), end="")
+import sys
+sys.exit()
 canonical_SMILES = sorted(set(canonical_SMILES))   # remove duplicates
 N = len(canonical_SMILES)
 matrice = [[0 for __ in range(N)] for _ in range(N)]

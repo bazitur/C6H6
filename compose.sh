@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm -rf ./MOLs/ ./CMLs/
-/usr/bin/env python C6H6.py
+/usr/bin/python C6H6.py
 mkdir MOLs
 cd MOLs
 for i in $(ls -1 ../CMLs | grep cml)

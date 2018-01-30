@@ -36,7 +36,7 @@ def weight_graphs(graph_bytestrings):
         total = 3 ** len(tuple(filter(lambda x: x == "1", d)))
         for p in tqdm(product(*[(range(1) if char == "0" else range(1, 4)) for char in d]), total=total):
             if sum(p) == 9:                          # TODO: rewrite below
-                if all(map(lambda x: 1 < x < 5, (    # doing some magic w/ matrix (counting Hs)
+                if all(map(lambda x: 1 <= x < 5, (    # doing some magic w/ matrix (counting Hs)
                     _s(p, 0, 1, 3, 6, 10),
                     _s(p, 0, 2, 4, 7, 11),
                     _s(p, 1, 2, 5, 8, 12),
